@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -7,9 +8,10 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPageTests {
 
     @Test
-    void firstTest() {
+    @DisplayName("Check label \"Let’s build from here\" on main page")
+    void HeaderTextTest() {
         open("https://github.com/");
-        $("html").shouldHave(text("Let’s build from here"));
+        $(".home-campaign-hero").shouldHave(text("Let’s build from here"));
     }
 
     @Test
