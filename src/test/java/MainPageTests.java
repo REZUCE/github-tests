@@ -1,3 +1,6 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -7,6 +10,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MainPageTests {
 
+    @BeforeAll
+    static void setup() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+    }
     @Test
     @DisplayName("Check label \"Let’s build from here\" on main page")
     void HeaderTextTest() {
