@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class SearchTests {
 
@@ -19,14 +20,20 @@ public class SearchTests {
     @Test
     @DisplayName("Check label successful search")
     void successfulSearchTest() {
-        open("https://github.com/");
-        $(".header-search-button").click();
-        $("#query-builder-test").setValue("qa guru").pressEnter();
+        step("Open main page", () ->
+                open("https://github.com/"));
+        step("Type search", () -> {
+            $(".header-search-button").click();
+            $("#query-builder-test").setValue("qa guru").pressEnter();
+        });
 
-        $("[data-testid=\"results-list\"]").shouldHave(text("qa-guru/niffler"));
+        step("Check search result", () ->
 
+                $("[data-testid=\"results-list\"]").shouldHave(text("qa-guru/niffler")));
 
     }
+
+
     @Test
     void unsuccessfulSearchTextTest() {
         open("https://github.com/");
