@@ -10,12 +10,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.$;
 
-public class MainPageTests {
+public class MainPageTests extends TestBase{
 
-    @BeforeAll
-    static void setup() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
     @Test
     @DisplayName("Check label \"Let’s build from here\" on main page")
     void HeaderTextTest() {

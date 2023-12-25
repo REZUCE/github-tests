@@ -10,12 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
-public class SearchTests {
+public class SearchTests extends TestBase {
 
-    @BeforeAll
-    static void setup() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
+
 
     @Test
     @DisplayName("Check label successful search")
